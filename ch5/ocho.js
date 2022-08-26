@@ -6,7 +6,7 @@
 
 testD : for(let x =3;x<5;x++){
     console.log(x)
-    testF : for(let x =0;x<1;x++){
+    testF : for(let x =0;x<2;x++){
         console.log(x)
         continue testD
 
@@ -27,7 +27,7 @@ testA : for(let x =3;x<6;x++) {
 
 //YIELD
 
-function* range(from, to){
+function* generator(from, to){
     for (let j = from; j < to; j++) {
     yield j
     }
@@ -35,22 +35,22 @@ function* range(from, to){
 
 
 //to iterate in console log with next and check if this is finish with done(boolean)
-for(let x of range(2,4)) {
+for(let x of generator(2,4)) {
     console.log(x)
 }
 
 //THROW
 
-var fP=(a) => {
+const fP=(a) => {
 
     if(a<0){
-    throw new Error("INVALID NUMBER PUT A POSTIVE NUMBER")
+        throw new Error("INVALID NUMBER PUT A POSITIVE NUMBER")
     }
     else{
-        console.log(a)
         return a
     }
 }
+
 
 //HANDLES EXCEPTIONS
 
@@ -114,5 +114,5 @@ console.log(new Circulo(5).area())
 // IMPORT EXAMPLE
 // import Circle from './ocho.js'
 
-// EXPORT EXAMPLE
-export {r,val}
+// // EXPORT EXAMPLE
+// export {r,val}

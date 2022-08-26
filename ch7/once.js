@@ -9,8 +9,12 @@ console.log(m)
 //with many args create the array but with one parameter limit the array
 
 //Array.of() for creating one or more values
+//Array.of(1, 2, 3)
 
 //Array.from() make a copy of the original array
+// Array.from('foo');
+
+
 
 // CREATE 10 EMPTY VALUES BEFORE THE VALUE 0
 a=[]
@@ -38,7 +42,10 @@ console.log(C)
 
 //TO MAKE MULTIDIMENSIONAL ARRAY, THIS CREATE ARRAY=[[,],[,],[,],[,],[,]]
 let arrEx=new Array(5)
+
+//ROW
 for(let x=0;x<arrEx.length;x++){
+    //COLUMN
     for(let i=0;i<5;i++){
         arrEx[x]=new Array(2)
     }
@@ -51,10 +58,10 @@ console.log(mappingEx)
 
 
 //make range of values
-let xa=[...Array(5).keys()]
+let xa=[...Array(6).keys()]
 
 //filter
-console.log(xa.filter((x,i)=>i>2))
+console.log(xa.filter((value,index)=>index>4))
 
 //FIND BY INDEX
 console.log(xa.findIndex(x => x === 2))
@@ -74,11 +81,12 @@ console.log(xa.reduce((x,y)=>x+y,0))
 let redV=[2,1,4];
 // console.log(redV.reduce((acc,val) => Math.pow(val,acc)))
 //STEPS
-// (1^2)
-// (4^1)
-console.log(redV.reduceRight((acc,val) => Math.pow(val,acc)))
-//1^4
+//CURRENT^ACC
+//1^1
 //2^1
+//2
+console.log(redV.reduceRight((acc,val) => Math.pow(val,acc)))
+
 
 //FLAT CANCEL NESTING IN ARRAYS TO MAKE A NEW ONE,for more you can specify in the arg
 console.log([1,[2,3]].flat())
@@ -99,9 +107,42 @@ console.log(xa.slice(0,2))
 
 
 //SPLICE RECORTA UN NUMERO HACIA DELANTE
-console.log(xa.splice(2))
+console.log('SPLICE',xa.splice(2))
 
 let fillG=new Array(6)
 //LLENA EL ARREGLO CON VALORES
 fillG.fill(7,4,fillG.length)
 console.log(fillG)
+
+
+
+//DELETE FIRST ELEMENT
+console.log('abcdf'.slice(1))
+
+//DELETE LAST ELEMENT
+let prueba='abcdf'
+prueba=prueba.slice(-prueba.length,-1)
+console.log('test ',prueba)
+
+
+//ARRAY MULTIDIMENSAIONAL
+let arrX= new Array(5)
+
+//ADD ARRAY OF 3  TO ALL INDEX IN ARRX
+for(let x=0;x<arrX.length;x++){
+    arrX[x]=new Array(3)
+}
+
+
+//ADD VALUES TO ARRAY OF 3
+for(let j=0;j<arrX.length;j++){
+    // arrX[x]=new Array(2)
+    for(let l=0 ; l<arrX[j].length ; l++){
+        arrX[j][l]=1*j
+    }
+}
+
+console.log(arrX)
+
+
+

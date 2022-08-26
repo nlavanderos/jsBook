@@ -80,7 +80,7 @@ console.log(Number.isNaN(0/0))
 console.log((0/0)===(1/-0))
 
 //problems with equal float numbers
-
+console.log("floats")
 console.log((.1)===(.3-.2))
 console.log((.1)===(.2-.1))
 

@@ -33,7 +33,9 @@ contador=0
 do {
     console.log(contador)
     contador++
-}while (contador!=2);
+}while (contador!=2){
+    console.log('Finish')
+};
 
 
 //FOR
@@ -101,6 +103,15 @@ let mapa = new Map([[110,{'dos':'eme'}]])
 for (let [x,v] of mapa){
     console.log(x,v)
 }
+
+let exMapa = new Map()
+exMapa.set("id",1235)
+exMapa.set("material","UI")
+console.log(exMapa)
+console.log(exMapa.has("id"))
+console.log(exMapa.get("id"))
+console.log(exMapa.delete("material"))
+console.log(exMapa)
 
 //FOR IN
 

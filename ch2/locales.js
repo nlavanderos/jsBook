@@ -1,4 +1,4 @@
-var LANGUAGE_BY_LOCALE = {
+export const LANGUAGE_BY_LOCALE = {
     af_NA: "Afrikaans (Namibia)",
     af_ZA: "Afrikaans (South Africa)",
     af: "Afrikaans",

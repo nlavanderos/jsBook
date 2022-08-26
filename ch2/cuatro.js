@@ -1,5 +1,6 @@
 //Dates and Times
 import {times} from "./timeZones.js"
+import {LANGUAGE_BY_LOCALE} from "./locales.js"
 //timestamp number
 console.log(Date.now())
 
@@ -70,11 +71,11 @@ console.log(basicThing.padStart(formatPadding,"*").padEnd(formatPadding+5,"*"))
 //FOR SINGLE WORD EXECUTE FUNCTIONS
 
 let trimFunctions = ['.trimEnd()','.trim()','.trimStart()']
-trimFunctions.map((fun)=>{
-    let exampleTrim="  Goku  "
-    console.log(eval("exampleTrim"+fun))
+const exampleTrim="  Goku  "
+let resTrimFunctions = trimFunctions.map((fun)=>{
+    return (eval("exampleTrim"+fun))
 })
-
+console.log(resTrimFunctions)
 //FOR A LIST OF WORDS THIS WORK
 
 // let trimFunctions = ['.trimEnd()','.trim()','.trimStart()']

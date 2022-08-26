@@ -36,7 +36,7 @@ delete objTest.tipo
 console.log(objTest)
 console.log(objTest.tipo??objTest.deco)
 console.log(objTest?200:400)
-console.log("pool" in objTest)
+console.log("deco" in objTest)
 
 
 // EQUALITY
@@ -54,7 +54,9 @@ console.log("not strict equal ",11!=="11")
 // << shift left and >> shift right with sign extension
 // >>> shift right with zero extension
 
-let valueBin=0b101.toString(10)
+// let valueBin=0b101.toString(10)
+let valueBin=parseInt('101',2)
+
 console.log(valueBin)
 // BIN TO INTEGER WITH SHIFT TO THE RIGHT(REDUCE THE VALUE) THE NUMBER (1) REMOVE BIN(1|0) FROM THE RIGHT
 console.log(valueBin>>1)
