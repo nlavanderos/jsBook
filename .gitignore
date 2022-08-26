@@ -1,0 +1,12 @@
+#IGNORE MODULES AND PACKAGE LOCK
+
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+#ignore idea folder
+/.idea
