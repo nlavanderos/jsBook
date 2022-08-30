@@ -46,7 +46,7 @@ console.log(buffer.byteLength )// => 1024*1024; one megabyte of memory
 // let asints = new Int32Array(buffer);
 // console.log(asints)
 
-//DATAVIEW AND ENDIANESS
+//arrays instantiation,DATAVIEW of bytes(buffer) AND ENDIANESS
 let bytes = new Uint8Array(1024);
 let view = new DataView(bytes.buffer,
   bytes.byteOffset,
@@ -62,3 +62,82 @@ console.log(view.setUint32(8, viewEndianes, false))
 
 //RegEX
 
+//FORMAT ===> /EXPRESSION/FLAGS
+
+// NAMED GROUPING
+// (?<name>rule)
+
+/*
+FLAGS
+g INDICATE THE REGEX IS GLOBAL AND return an array
+i case insensitive
+m multiline
+s like m flag but text that includes newlines
+u unicode
+y similar to ^ for beggging of string used for one match
+*/
+
+
+/*
+ANY FLAG IN CAPS NEGATE EXAMPLE /W negates the below line
+\w Any ASCII word character. Equivalent to [a-zA-Z0-9_].
+\s Any Unicode whitespace character.
+\d Any ASCII digit. Equivalent to [0-9].
+\b literal backspace*/
+    // . MEANING ANYTHING CHAR
+let pattern = /(?<seriesNames>[^series:][\w]+)/ig
+
+console.log(  'series:naruto , dragon ball z   , one piece '.match(pattern))
+
+/*
+REPETITION CHARACTERS
+{from,to}
+{exactly}
+zero or one ocurrence {0,1}=== ?
+ONE OR MORE OCURRENCES  {1,} === +
+ZERO OR MORE OCURRENCES {0,} === *
+    **/
+
+/*ALTERNATION
+| MATCH THE REGEX LEFT OR RIGHT EXPRESSION*/
+
+/*ANCHOR CHARS
+^MATCH THE BEGGING
+$ MATCH THE END
+(?=p) A positive lookahead assertion. Require that the following characters match the pattern p, but do not include
+those characters in the match.
+(?!p) A negative lookahead assertion. Require that the following characters do not match the pattern p.*/
+
+
+/*STRING METHODS FOR REGEX(PATTERN)
+
+'EXAMPLE'.SEARCH(REGEX) RETURNS THE INDEX IF IT DOESNT MATCH RETURN -1
+replace(REGEX,STRINGTOREPLACE) COMBINED WITH A REGEX REPLACE THIS VALUE
+'EX'.MATCH(REGEX)
+'EX'.MATCHALL(REGEX)
+'EX , EX '.split(/\s*,\s*!/)*/
+
+
+/*REGEX CLASS EXAMPLE
+let exactMatch = /JavaScript/;
+let caseInsensitive = new RegExp(exactMatch, "i");*/
+
+/*REGEX METHODS
+TEST() RETURN BOOLEAN
+EXEC() IS FOR MATCHING, USAGE PATTERN.EXEC('TEXT')*/
+
+
+// URL PARSING
+
+let pattern2=/(\w+):\/\/([\w.]+)\/([\S]+)/i
+let text = "Visit my blog at http://www.example.com/~setxh";
+let match2=text.match(pattern2)
+let fullurl, protocol, host, path;
+if (match2 !== null) {
+    fullurl=match2[0]
+    protocol=match2[1]
+    host=match2[2]
+    path=match2[3]
+}
+
+console.log(fullurl, protocol, host, path)

@@ -1,0 +1,5 @@
+//DATES AND TIMES
+
+let cDate = new Date()
+console.log(cDate)
+//PARAMS OF DATE YEAR,MONTH O TO 11 JANUARY TO DECEMBER,DAY,HOUR,MM,SS,MS
