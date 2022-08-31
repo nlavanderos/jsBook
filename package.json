@@ -2,8 +2,10 @@
   "dependencies": {
     "crypto-js": "^4.1.1",
     "jsdom": "^20.0.0",
-    "ts-node": "^10.9.1",
-    "prettier": "^2.7.1"
+    "ts-node": "^10.9.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
 }
