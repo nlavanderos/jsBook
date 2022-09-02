@@ -1,5 +1,5 @@
 // Asynchronous javaScript
-
+import fetch from "node-fetch";
 //EVENTS 13.1.2
 
 // Ask the web browser to return an object representing the HTML
@@ -161,9 +161,7 @@
 
 Promise.allSettled([Promise.resolve(1), Promise.reject(2), 3]).then(
   (results) => {
-    results[0]; // => { status: "fulfilled", value: 1 }
-    results[1]; // => { status: "rejected", reason: 2 }
-    results[2]; // => { status: "fulfilled", value: 3 }
+    console.log(results);
   }
 );
 
@@ -189,66 +187,63 @@ function wait(duration) {
   });
 }
 
-
-
 // If it parsed successfully, fulfill the Promise resolve(parsed);
 
-
 function equal(a) {
-  const same = 'exito' === a ;
-  return new Promise((resolve, reject)=>{
-    console.log('Es lo esperado ',same)
-    setTimeout(()=>{resolve(same)},250)
-  })
+  const same = "exito" === a;
+  return new Promise((resolve, reject) => {
+    console.log("Es lo esperado ", same);
+    setTimeout(() => {
+      resolve(same);
+    }, 250);
+  });
 }
 
-function creD(url){
-  return new Promise((resolve, reject)=>{
-    console.log('Muestra la url ',url)
-    setTimeout(()=>{resolve('exito')},250)
-    return equal('exito')
-  })
+function creD(url) {
+  return new Promise((resolve, reject) => {
+    let cond = url ? "exito" : "false";
+    setTimeout(() => {
+      resolve(cond);
+      return equal(cond);
+    }, 1000);
+  });
 }
 
-
-console.log(creD('www.google.com').then((success)=>{console.log(success)}))
-
-
+creD("www.google.com").then((success) => {
+  console.log(success);
+});
 
 //Promises in sequence
-
-
 function fetchSequentially(urls) {
-// We'll store the URL bodies here as we fetch them
-const bodies = [];
+  // We'll store the URL bodies here as we fetch them
+  const bodies = [];
   // Here's a Promise-returning function that fetches one body
-  function fetchOne(proxy) {
-    return fetch(proxy)
-      .then(response => response.text())
-      .then(body => {
-// We save the body to the array, and we're purposely // omitting a return value here (returning undefined)
+  function fetchOne(url) {
+    return fetch(url)
+      .then((response) => response.text())
+      .then((body) => {
+        // We save the body to the array, and we're purposely // omitting a return value here (returning undefined)
         bodies.push(body);
       });
   }
-
   // Start with a Promise that will fulfill right away (with value undefined)
   let p = Promise.resolve(undefined);
-// Now loop through the desired URLs, building a Promise chain
+  // Now loop through the desired URLs, building a Promise chain
+  // of arbitrary length, fetching one URL at each stage of the chain
 
-// of arbitrary length, fetching one URL at each stage of the chain
-for(let proxy of urls) {
-  p = p.then(() => fetchOne(proxy));
-}
-// When the last Promise in that chain is fulfilled, then the
-// bodies array is ready. So let's return a Promise for that
-
-// bodies array. Note that we don't include any error handlers: // we want to allow errors to propagate to the caller.
-return p.then(() => bodies);
-
+  for (let url of urls) {
+    p = p.then(() => fetchOne(url));
+  }
+  // When the last Promise in that chain is fulfilled, then the
+  // bodies array is ready. So let's return a Promise for that
+  // bodies array. Note that we don't include any error handlers: // we want to allow errors to propagate to the caller.
+  return p.then(() => bodies);
 }
 
+let cnt = ["https://www.google.cxl", "https://www.google.exs"];
 
-
-
-fetchSequentially(['http://www.google.com','http://www.google.com'])
-  .then(bodies => { console.log(bodies) }) .catch(e => console.error(e));
+fetchSequentially(cnt)
+  .then((bodies) => {
+    console.log(bodies);
+  })
+  .catch((e) => console.error(e));
