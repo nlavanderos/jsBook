@@ -23,7 +23,7 @@ ler.addEventListener("mouseout", function (eve) {
   if (eve) {
     console.log("its finish");
     setTimeout(() => {
-      eve.target.innerHTML = "mouse sin hacer click";
+      this.target.innerHTML = "mouse sin hacer click";
     }, 1000);
   }
 });
@@ -34,13 +34,13 @@ $(document).ready(function () {
 });
 
 //device dependant events mousedown
+
 //device independemet click
+
 //api “waiting,” “playing,” “seeking,”
+
 //document load STATE-CHANGE EVENT
 document.addEventListener("DOMContentLoaded", () => {});
 console.log("el documento se ha cargado");
 
 //USER INTERFACE EVENT LIKE FOCUS
-
-// event object
-// event propagation

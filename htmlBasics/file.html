@@ -1,79 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Tags comunes</title>
-</head>
-<body>
-<!--H1 MAS GRANDE A MAS CHICO H6-->
-  <h1>Listado de tags</h1>
-<p>Encontras de todo un poco a modo de resumen</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tags comunes</title>
+  </head>
+  <body>
+    <!--H1 MAS GRANDE A MAS CHICO H6-->
+    <h1>Listado de tags</h1>
+    <p>Encontras de todo un poco a modo de resumen</p>
 
-<div class="">
-<ol>
-  <li>pastor aleman</li>
-  <li>siames</li>
-</ol>
+    <div class="">
+      <ol>
+        <li>pastor aleman</li>
+        <li>siames</li>
+      </ol>
 
-<ul>
-  <li>perro</li>
-  <li>gato</li>
-</ul>
-  </div>
-<div style="">
-<table style= "border: 1px solid black  ;border-style: dashed ;border-collapse:separate ; border-spacing:30px " ; >
-  <thead>
-  <tr>
-    <th>Usuario</th>
-    <th>Correo</th>
-    <th>Telefono</th>
-  </tr>
-  </thead>
+      <ul>
+        <li>perro</li>
+        <li>gato</li>
+      </ul>
+    </div>
 
-  <tbody class="cx">
+    <!--event object-->
+    <p><button onclick="myFunction()">Simulate Mouse Over</button></p>
+    <div id="miDiv" onmouseover="this.innerHTML += '*';"></div>
+    <div>
+      <table aria-label="Contenido de usuarios"
+        style="
+          border: 1px solid black;
+          border-style: dashed;
+          border-collapse: separate;
+          border-spacing: 30px;
+        "
+        ;
+      >
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+          </tr>
+        </thead>
 
-  <tr >
-  <td>Julio</td>
-  <td>jmax@gmail.com</td>
-  <td>+56928374829</td>
-  </tr>
+        <tbody class="cx">
+          <tr>
+            <td>Julio</td>
+            <td>jmax@gmail.com</td>
+            <td>+56928374829</td>
+          </tr>
 
-  <tr >
-  <td>Julio</td>
-  <td>jmax@gmail.com</td>
-  <td>+56928374829</td>
-  </tr>
+          <tr>
+            <td>Julio</td>
+            <td>jmax@gmail.com</td>
+            <td>+56928374829</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  </tbody>
-</table>
-</div>
+    <form
+      action="mailto:n.lavanderosflores@gmail.com"
+      method="post"
+      enctype="text/plain"
+    >
+      <label>Tu nombre: </label>
+      <input type="text" name="name" value="" required /><br />
+      <label>Tu correo: </label>
+      <input type="email" name="email" value="" required /><br />
+      <label>Tu numero: </label>
+      <input type="number" name="number" value="" required /><br />
+      <label>Mensaje: </label><br />
+      <textarea name="mensaje" rows="10" cols="30"></textarea><br />
+      <input type="submit" name="" class="btn btn-success" />
+    </form>
 
+    <a class="Anchor" href="https://www.w3schools.com"> GO TO GOOGLE BBY </a>
 
-<form action="mailto:n.lavanderosflores@gmail.com" method="post" enctype="text/plain">
-<label>Tu nombre: </label>
-  <input type="text" name="name" value="" required><br>
-  <label>Tu correo: </label>
-  <input type="email" name="email" value="" required><br>
-  <label>Tu numero: </label>
-  <input type="number" name="number" value="" required><br>
-  <label>Mensaje: </label><br>
-  <textarea name="mensaje" rows="10" cols="30"></textarea><br>
-  <input type="submit" name="" class="btn btn-success">
+    <!--event object-->
+    <script>
+      function myFunction() {
+        const ev = new MouseEvent("mouseover");
+        if (document.getElementById("miDiv").innerText.slice(-3) !== "***") {
+          document.getElementById("miDiv").dispatchEvent(ev);
+        } else {
+          <!-- event propagation-->
+          ev.stopPropagation();
+        }
+      }
 
-</form>
+      const elements=document.getElementsByClassName('Anchor')
+      for(let x =0;x<elements.length;x++) {
+          elements[x].addEventListener("click",(ev)=>{
+              ev.preventDefault()
+          })
+      }
+    </script>
 
-
-
-  <style>
-    th{
+    <style>
+      th {
         border: 1px solid black;
         border-inline: black;
-    text-align: center;
+        text-align: center;
+      }
 
-
-  }
-
-    tbody.cx :hover {background-color: #D6EEEE;}
-  </style>
-</body>
+      tbody.cx :hover {
+        background-color: #d6eeee;
+      }
+    </style>
+  </body>
 </html>
